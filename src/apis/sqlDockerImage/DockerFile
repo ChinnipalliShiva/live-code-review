@@ -1,0 +1,10 @@
+# Use MySQL official image as base
+FROM mysql:8.3.0
+# Set environment variables for the MySQL container
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=code-review
+ENV MYSQL_USER=testuser
+ENV MYSQL_PASSWORD=testpass
+
+# Expose the port you want Render to detect
+EXPOSE 3306
