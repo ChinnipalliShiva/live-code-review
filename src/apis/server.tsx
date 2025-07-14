@@ -1,7 +1,8 @@
 import express from "express";
 import { Login, SignIn } from "./Router/Auth/index";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 // const prisma = new PrismaClient();
+import { createRoom, joinRoom } from "./Router/Rooms/index";
 const app: express.Express = express();
 import cors from "cors";
 app.use(cors());
@@ -10,6 +11,8 @@ app.use(express.json());
 // app.use(cors({ origin: 'http://localhost:6000', credentials: true }));
 app.use("/login", Login);
 app.use("/sign-up", SignIn);
+app.use("/create-room", createRoom);
+app.use("/join-room", joinRoom);
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
